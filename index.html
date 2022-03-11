@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Resistor Colour Code Calculator</title>
+</head>
+
+<body>
+  <div class="instructions-diagram">
+    <button class="btn" id="instruction">Instructions & Diagram</button>
+  </div>
+  <div class="container">
+    <h1>Resistor Colour Code Calculator</h1>
+    <div class="band-selector">
+      <h4>Number of Bands</h4>
+      <form id="band-count">
+        <input type="radio" name="band" value="4 band" checked> 4 Band
+        <input type="radio" name="band" value="5 band"> 5 Band
+      </form>
+    </div>
+    <div class="input-output-display">
+      <div class="input">
+        <h4>Resistor Parameters</h4>
+        <form id="colour-codes">
+          <div class="band1">
+            <label for="first-band">1st Band of Colour</label>
+            <select id="first-band" name="first-band">
+              <option value="-">Select a colour</option>
+              <option value="0">Black 0</option>
+              <option value="1">Brown 1</option>
+              <option value="2">Red 2</option>
+              <option value="3">Orange 3</option>
+              <option value="4">Yellow 4</option>
+              <option value="5">Green 5</option>
+              <option value="6">Blue 6</option>
+              <option value="7">Violet 7</option>
+              <option value="8">Grey 8</option>
+              <option value="9">White 9</option>
+            </select>
+          </div>
+          <div class="band2">
+            <label for="second-band">2nd Band of Colour</label>
+            <select id="second-band" name="second-band">
+              <option value="-">Select a colour</option>
+              <option value="0">Black 0</option>
+              <option value="1">Brown 1</option>
+              <option value="2">Red 2</option>
+              <option value="3">Orange 3</option>
+              <option value="4">Yellow 4</option>
+              <option value="5">Green 5</option>
+              <option value="6">Blue 6</option>
+              <option value="7">Violet 7</option>
+              <option value="8">Grey 8</option>
+              <option value="9">White 9</option>
+            </select>
+          </div>
+          <div class="band3 hidden">
+            <label for="third-band">3rd Band of Colour</label>
+            <select id="third-band" name="third-band">
+              <option value="-">Select a colour</option>
+              <option value="0">Black 0</option>
+              <option value="1">Brown 1</option>
+              <option value="2">Red 2</option>
+              <option value="3">Orange 3</option>
+              <option value="4">Yellow 4</option>
+              <option value="5">Green 5</option>
+              <option value="6">Blue 6</option>
+              <option value="7">Violet 7</option>
+              <option value="8">Grey 8</option>
+              <option value="9">White 9</option>
+            </select>
+          </div>
+          <div class="multiplier">
+            <label for="res-multiplier">Multiplier</label>
+            <select id="res-multiplier" name="multiplier">
+              <option value="-">Select a colour</option>
+              <option value="x1 Ω">Black x1 Ω</option>
+              <option value="x10 Ω">Brown x10 Ω</option>
+              <option value="x100 Ω">Red x100 Ω</option>
+              <option value="x1 kΩ">Orange x1 kΩ</option>
+              <option value="x10 kΩ">Yellow x10 kΩ</option>
+              <option value="x100 kΩ">Green x100 kΩ</option>
+              <option value="x1 MΩ">Blue x1 MΩ</option>
+              <option value="x10 MΩ">Violet x10 MΩ</option>
+              <option value="x100 MΩ">Grey x100 MΩ</option>
+              <option value="x1 GΩ">White x1 GΩ</option>
+              <option value="x0.1 Ω">Gold x0.1 Ω</option>
+              <option value="x0.01 Ω">Silver x0.01 Ω</option>
+            </select>
+          </div>
+          <div class="tolerance">
+            <label for="res-tolerance">Tolerance</label>
+            <select id="res-tolerance" name="tolerance">
+              <option value="-">Select a colour</option>
+              <option value="± 1%">Black ± 1%</option>
+              <option value="± 2%">Red ± 2%</option>
+              <option value="± 0.5%">Green ± 0.5%</option>
+              <option value="± 0.25%">Blue ± 0.25%</option>
+              <option value="± 0.1%">Violet ± 0.1%</option>
+              <option value="± 0.05%">Grey ± 0.05%</option>
+              <option value="± 5%">Gold ± 5%</option>
+              <option value="± 10%">Silver ± 10%</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="output">
+        <h4>Output</h4>
+        <div id="resistor-diagram">
+          <img src="images/resistor-color-diagram-bg.webp" alt="resistor">
+          <div class="bands">
+            <div class="band-top" id="first-band-top">
+              <div class="band" id="first">-</div>
+            </div>
+            <div class="band-top" id="second-band-top">
+              <div class="band" id="second">-</div>
+            </div>
+            <div class="band-top hidden" id="third-band-top">
+              <div class="band hidden" id="third">-</div>
+            </div>
+            <div class="band-top" id="multiplier-top">
+              <div class="band" id="multiplier">-</div>
+            </div>
+            <div class="band-top" id="tolerance-top">
+              <div class="band" id="tolerance">-</div>
+            </div>
+          </div>
+        </div>
+        <div class="result-display">
+          <h2>Resistor Value:</h2>
+          <div class="result">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button class="btn" id="find-value">Find Value</button>
+      <button class="btn" id="clear">Clear</button>
+    </div>
+  </div>
+  <div class="info-popup">
+    <button class="cross btn">X</button>
+    <h2>Instructions & Diagram</h2>
+    <p>This tool is used to decode information for color banded axial leas resistors.<br><br> Select the number of
+      bands, then
+      their colors to determine the value and tolerance of the resistors.</p>
+    <img src="images/resistor-color-chart.png" alt="colour-chart">
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
