@@ -24,7 +24,7 @@ const toleranceInput = document.getElementById("res-tolerance");
 const toleranceDisplay = document.getElementById("tolerance");
 const toleranceTopDisplay = document.getElementById("tolerance-top");
 const findValue = document.getElementById("find-value");
-const clear = document.getElementById("clear");
+const reset = document.getElementById("reset");
 const resultDisplay = document.querySelector(".result");
 const ogColour = "rgba(228, 216, 202, 0.746)";
 const colours = {
@@ -149,7 +149,7 @@ findValue.addEventListener("click", () => {
 	resultDisplay.appendChild(resultSpan);
 });
 
-clear.addEventListener("click", () => {
+reset.addEventListener("click", () => {
 	firstBandDisplay.innerText = "-";
 	firstBandDisplay.style.backgroundColor = ogColour;
 	firstBandTopDisplay.style.backgroundColor = ogColour;
